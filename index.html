@@ -128,16 +128,21 @@
     <section id="contact" class="card" style="margin-top:18px">
 <h2>Get in touch</h2>
 <p class="muted">Prefer email — I typically respond within a few days.</p>
-<form name="contact" method="POST" data-netlify="true">
-<input type="hidden" name="form-name" value="contact">
-<label>Name</label>
-<input name="name" placeholder="Your name" required />
-<label>Email</label>
-<input name="email" type="email" placeholder="your@email.com" required />
-<label>Message</label>
-<textarea name="message" rows="4" placeholder="Message" required></textarea>
-<button class="btn" type="submit">Send</button>
+<form name="contact" method="POST" data-netlify="true" action="/thank-you.html">
+  <input type="hidden" name="form-name" value="contact">
+  
+  <label>Name</label>
+  <input name="name" placeholder="Your name" required />
+
+  <label>Email</label>
+  <input name="email" type="email" placeholder="your@email.com" required />
+
+  <label>Message</label>
+  <textarea name="message" rows="4" placeholder="Message" required></textarea>
+
+  <button class="btn" type="submit">Send</button>
 </form>
+
 </section>
 
     <footer>
@@ -146,5 +151,33 @@
     </footer>
 
   </div>
+<script>
+const form = document.querySelector('form[name="contact"]');
+if (form) {
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const data = new FormData(form);
+
+    // Must include the form-name for Netlify when using fetch
+    data.append('form-name', form.getAttribute('name'));
+
+    fetch('/', {
+      method: 'POST',
+      body: data
+    })
+    .then(response => {
+      if (response.ok) {
+        form.innerHTML = '<h3>Thanks — your message was sent.</h3><p>I will reply soon.</p>';
+      } else {
+        throw new Error('Network response was not ok');
+      }
+    })
+    .catch(() => {
+      form.innerHTML = '<h3>Submission failed</h3><p>Please try again or email me directly.</p>';
+    });
+  });
+}
+</script>
+  
 </body>
 </html>
