@@ -43,9 +43,23 @@
       text-decoration: none;
     }
 
-.project-link:hover {
-  text-decoration: underline;
-}
+      .projects a {
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .projects li div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .projects li p {
+      margin: 6px 0 0 0;
+      color: var(--muted);
+    }
+    .project-link:hover {
+      text-decoration: underline;
+    }
 
   </style>
 </head>
@@ -98,10 +112,16 @@
         <section id="projects" class="card" style="margin-top:14px">
           <h2>Projects</h2>
           <ul class="projects">
-            <li><strong>Employee Attrition Analysis</strong> — Exploratory data analysis, feature engineering, and churn pattern identification using HR dataset. Built a predictive classification model (Logistic Regression / Random Forest) to identify key drivers of attrition. Developed a Power BI dashboard highlighting risk segments, employee performance, salary bands, and actionable retention insights.
-            <a href="https://github.com/AradhanaS18/HR-Attrition-Analysis" target="_blank">View Project</a></li><br>
-            <li><strong>Walmart Sales Forecasting</strong> — Collected, cleaned, and normalized multi-store historical sales data. Performed EDA to understand seasonal trends, holiday impact, and regional performance variations. Built forecasting models (ARIMA/Prophet) to estimate weekly sales. Delivered insights on inventory planning, demand patterns, and store-level performance using Power BI visualizations.
-            <a href="https://github.com/AradhanaS18/Walmart-Sales-Forecast" target="_blank">View Project</a></li>li>
+            <li><div><strong>Employee Attrition Analysis</strong> 
+            <a href="https://github.com/AradhanaS18/HR-Attrition-Analysis" target="_blank">View Project</a>
+            </div>
+            <p> Exploratory data analysis, feature engineering, and churn pattern identification using HR dataset. Built a predictive classification model (Logistic Regression / Random Forest) to identify key drivers of attrition. Developed a Power BI dashboard highlighting risk segments, employee performance, salary bands, and actionable retention insights.</p>
+            </li>
+            <li><div><strong>Walmart Sales Forecasting</strong> 
+            <a href="https://github.com/AradhanaS18/Walmart-Sales-Forecast" target="_blank">View Project</a>
+            </div>
+            <p>Collected, cleaned, and normalized multi-store historical sales data. Performed EDA to understand seasonal trends, holiday impact, and regional performance variations. Built forecasting models (ARIMA/Prophet) to estimate weekly sales. Delivered insights on inventory planning, demand patterns, and store-level performance using Power BI visualizations.</p>
+            </li>
           </ul>
         </section>
 
